@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: web-pod
+  labels:
+    app: web-app # Must match the Service selector
+spec:
+  containers:
+    - name: web-container
+      image: node:18 # Example Node.js image
+      ports:
+        - containerPort: 80
+      command: ["node", "server.js"] # Example command to start your Node app

@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-service
+spec:
+  selector:
+    app: web-app # must match your Pod/Deployment labels
+  type: NodePort # exposes service on each Node's IP
+  ports:
+    - protocol: TCP
+      port: 80 # Service port inside the cluster
+      targetPort: 80 # Container port in the Pod
+      nodePort: 30080 # Port on the Node to access externally (optional, else auto-assigned)
